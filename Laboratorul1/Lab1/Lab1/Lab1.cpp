@@ -22,16 +22,22 @@ int function(char *c) {
 
 int main()
 {
+	int sum = 0;
 	char myString[100];
 	FILE* pFile;
 	fopen_s(&pFile, "in.txt", "r");
-	if (fopen_s(&pFile, "in.txt", "r") != 0)
+	if (pFile == NULL)
 	{
 		printf("Eroare. Nu am putut deschide fisierul\n");
+		return 1;
 	}
-	while (fopen_s(&pFile, "in.txt", "r") != NULL) {
-		fgets(myString, 100, pFile);
-		printf("%s", myString);
-		printf("%i", function(myString));
+	while (fgets(myString, 100, pFile)) {
+		
+		//printf("%s", myString);
+		//printf("%i\n", function(myString));
+		sum += function(myString);
 	}
+	fclose(pFile);
+	printf("%i", sum);
+	return 0;
 }
