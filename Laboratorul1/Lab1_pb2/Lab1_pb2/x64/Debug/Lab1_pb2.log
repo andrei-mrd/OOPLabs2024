@@ -1,0 +1,7 @@
+﻿  Lab1_pb2.cpp
+C:\Users\andre\ooplabs\OOPLabs2024\Laboratorul1\Lab1_pb2\Lab1_pb2\Lab1_pb2.cpp(11,13): warning C4477: 'scanf_s' : format string '%[^\n]' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+  C:\Users\andre\ooplabs\OOPLabs2024\Laboratorul1\Lab1_pb2\Lab1_pb2\Lab1_pb2.cpp(11,13):
+  this argument is used as a buffer size
+  
+C:\Users\andre\ooplabs\OOPLabs2024\Laboratorul1\Lab1_pb2\Lab1_pb2\Lab1_pb2.cpp(12,10): warning C4101: 'prop': unreferenced local variable
+  Lab1_pb2.vcxproj -> C:\Users\andre\ooplabs\OOPLabs2024\Laboratorul1\Lab1_pb2\x64\Debug\Lab1_pb2.exe
