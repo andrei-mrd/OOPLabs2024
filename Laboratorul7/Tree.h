@@ -5,7 +5,7 @@ struct nod {
 public:
     int cnt = 0; // nr de copii
     T info;
-    nod** children; // pointer la pointer
+    nod** children;
 };
 
 template <class T>
@@ -24,7 +24,7 @@ public:
             this->root = parent;
         }
         else {
-            nod<T>** new_children = new nod<T>*[parent->cnt + 1];
+            nod<T>** new_children = new nod<T>*[parent->cnt + 2];
 
             for (int i = 0; i < parent->cnt; i++) {
                 new_children[i] = parent->children[i];
@@ -34,6 +34,7 @@ public:
             new_children[parent->cnt]->info = value;
             new_children[parent->cnt]->children = nullptr;
             new_children[parent->cnt]->cnt = 0;
+            new_children[parent->cnt + 1] = nullptr;
 
             delete[] parent->children;
             parent->children = new_children;
@@ -118,13 +119,26 @@ public:
     }
 
     /*not implemented*/
+    /*
     int count(nod<T>* node) {
-        int i = 0;
-        while (node->children[i] != nullptr) {
-            //std::cout << node->children[i]->info << " ";
-            i++;
+        int count = 0;
+        while (node->children[count] != nullptr) {
+            count++;
         }
-        return i;
+        return count;
+    }
+    */
+
+    int count(nod <T>* node) {
+        int c = 0;
+        if (node == nullptr) {
+            return 0;
+        }
+        for (int i = 0; node->children[i] != nullptr; i++) {
+            c++;
+            c += count(node->children[i]);
+        }
+        return c;
     }
 
     ~Tree() {
